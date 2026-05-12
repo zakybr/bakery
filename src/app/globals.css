@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
   --bg-primary: #0a0705;
   --bg-secondary: #12100d;
   --glass-bg: rgba(255, 255, 255, 0.04);
@@ -17,9 +19,9 @@
 }
 
 @theme inline {
-  --font-family-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-family-display: var(--font-playfair), ui-serif, Georgia, serif;
-  --font-family-mono: var(--font-dm-mono), ui-monospace, monospace;
+  --font-family-sans: var(--font-body);
+  --font-family-display: var(--font-heading);
+  --font-family-mono: var(--font-body);
 }
 
 html {
@@ -35,8 +37,17 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 .glass {
@@ -123,11 +134,11 @@ body {
 }
 
 @utility font-display {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  font-family: var(--font-heading);
 }
 
 @utility font-mono-accent {
-  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-family: var(--font-body);
 }
 
 ::selection {

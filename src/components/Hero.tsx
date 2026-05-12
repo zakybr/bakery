@@ -139,7 +139,7 @@ export function Hero() {
             className="mb-8 max-w-md text-base leading-relaxed text-[var(--cream-muted)] sm:mb-10 sm:text-base"
           >
             Slow-braised steak. Hand-selected Bluff oysters. Buttery house pastry. Our boldest
-            creation yet — available daily while stocks last.
+            creation yet - available daily whilst stocks last.
           </p>
 
           <div

@@ -1,28 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Mono, DM_Sans, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import { JsonLdScript } from "next-seo";
 import CursorGlow from "@/components/CursorGlow";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  variable: "--font-dm-mono",
-  weight: ["400", "500"],
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://baketownbakery.co.nz"),
@@ -89,11 +72,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en-NZ"
-      className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang="en-NZ" className="h-full antialiased">
+      <body className={`${inter.variable} min-h-full flex flex-col font-sans`}>
         <JsonLdScript scriptKey="bakery-jsonld" data={bakeryJsonLd} />
         <SmoothScroll>
           <CursorGlow />
