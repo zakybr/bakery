@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Mono, DM_Sans, Playfair_Display } from "next/font/google";
 import { JsonLdScript } from "next-seo";
+import CursorGlow from "@/components/CursorGlow";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -93,7 +95,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <JsonLdScript scriptKey="bakery-jsonld" data={bakeryJsonLd} />
-        {children}
+        <SmoothScroll>
+          <CursorGlow />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

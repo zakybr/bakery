@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Menu } from "@/components/Menu";
 import { Navbar } from "@/components/Navbar";
+import { SectionDivider } from "@/components/SectionDivider";
 import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
@@ -14,11 +15,17 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <SectionDivider />
         <About />
+        <SectionDivider />
         <Menu />
+        <SectionDivider />
         <Featured />
+        <SectionDivider />
         <Awards />
+        <SectionDivider />
         <Testimonials />
+        <SectionDivider />
         <FindUs />
       </main>
       <Footer />
