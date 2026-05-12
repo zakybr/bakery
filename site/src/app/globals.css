@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+  --bg-primary: #0a0705;
+  --bg-secondary: #12100d;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --gold: #c9a84c;
+  --gold-light: #e8c87a;
+  --cream: #f5edd6;
+  --cream-muted: rgba(245, 237, 214, 0.55);
+  --terracotta: #c4613a;
+  --text-primary: #f5edd6;
+  --text-muted: rgba(245, 237, 214, 0.5);
+  --footer-bg: #080604;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-family-sans: var(--font-body);
+  --font-family-display: var(--font-heading);
+  --font-family-mono: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.glass:hover {
+  background: var(--glass-hover);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+@media (max-width: 640px) {
+  .glass {
+    border-radius: 12px;
+  }
+}
+
+.nav-link-underline {
+  position: relative;
+  color: var(--cream-muted);
+  transition: color 0.25s ease;
+}
+
+.nav-link-underline:hover {
+  color: var(--cream);
+}
+
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--bg-primary);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-gold:hover {
+  transform: scale(1.03);
+  background-color: var(--gold-light);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
+}
+
+.btn-gold:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.btn-ghost-glass {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-ghost-glass:hover {
+  border-color: rgba(201, 168, 76, 0.5) !important;
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.15);
+}
+
+@utility font-display {
+  font-family: var(--font-heading);
+}
+
+@utility font-mono-accent {
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: rgba(201, 168, 76, 0.35);
+  color: var(--bg-primary);
 }
