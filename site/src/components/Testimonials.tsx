@@ -14,15 +14,15 @@ function TestimonialItem({ quote, author }: { quote: string; author: string }) {
   return (
     <div
       ref={blockRef}
-      className="mx-auto flex max-w-[680px] flex-col items-center text-center max-sm:max-w-full"
+      className="mx-auto flex max-w-2xl flex-col items-center text-center"
     >
-      <span className="font-heading mb-2 block text-center text-[72px] font-extralight leading-none text-[var(--border)]">
+      <span className="font-heading mb-4 block text-center text-7xl leading-none text-stone-300">
         &ldquo;
       </span>
-      <p className="font-heading m-0 max-w-[680px] text-center text-[clamp(18px,5vw,24px)] font-extralight leading-[1.45] text-[var(--text-primary)] max-sm:max-w-full md:text-[clamp(20px,2.8vw,30px)]">
+      <p className="font-heading text-center text-[clamp(18px,2.5vw,28px)] font-thin leading-[1.5] text-stone-800">
         {quote}
       </p>
-      <p className="font-heading mt-5 text-center text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
+      <p className="font-heading mt-5 text-center text-[11px] uppercase tracking-[0.2em] text-stone-400">
         {author}
       </p>
     </div>
@@ -31,14 +31,14 @@ function TestimonialItem({ quote, author }: { quote: string; author: string }) {
 
 export function Testimonials() {
   return (
-    <section className="bg-[var(--bg-secondary)] py-12 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:py-[var(--section-gap)]">
+    <section className="bg-[#F7F4F0] px-6 py-16 md:px-16 md:py-32 lg:px-24">
       <div className="mx-auto max-w-3xl">
         {items.map((item, i) => (
           <div key={item.quote}>
             <TestimonialItem quote={item.quote} author={item.author} />
             {i < items.length - 1 ? (
-              <span
-                className="mx-auto my-12 block h-16 w-px bg-[var(--border)] max-sm:my-12"
+              <div
+                className="mx-auto my-14 h-16 w-px bg-stone-300"
                 aria-hidden
               />
             ) : null}

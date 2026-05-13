@@ -61,44 +61,44 @@ export function Hero() {
     <section
       ref={root}
       id="hero"
-      className="grid min-h-[100svh] grid-cols-1 bg-[var(--bg-primary)] md:grid-cols-2"
+      className="grid min-h-screen grid-cols-1 bg-white md:grid-cols-2"
     >
-      <div className="order-2 flex flex-col justify-center gap-0 pt-10 pb-14 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:order-1 md:min-h-[100svh] md:py-[clamp(80px,10vw,140px)] md:pl-[clamp(32px,5vw,80px)] md:pr-[clamp(32px,5vw,80px)]">
+      <div className="order-2 flex w-full flex-col justify-center gap-0 px-6 py-16 md:order-none md:px-16 md:py-24 lg:px-24">
         <p
           ref={labelRef}
-          className="font-heading mb-7 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)]"
+          className="font-heading mb-7 text-xs uppercase tracking-widest text-stone-400"
         >
           FLAT BUSH, AUCKLAND · EST. 2018
         </p>
-        <h1 className="font-heading m-0 font-extralight leading-[0.95] tracking-[-0.03em] text-[var(--text-primary)] [&>span]:mb-0">
-          <span ref={line1Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
+        <h1 className="font-heading m-0 text-[clamp(48px,7vw,88px)] font-thin leading-[0.95] tracking-tight text-stone-900">
+          <span ref={line1Ref} className="block">
             Baked
           </span>
-          <span ref={line2Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
+          <span ref={line2Ref} className="block">
             Fresh.
           </span>
-          <span ref={line3Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
+          <span ref={line3Ref} className="block">
             Daily.
           </span>
         </h1>
         <p
           ref={bodyRef}
-          className="mt-8 max-w-[380px] text-[15px] leading-[1.7] text-[var(--text-secondary)] md:text-base"
+          className="mt-8 max-w-sm text-base leading-relaxed text-stone-500"
         >
           Flat Bush&apos;s favourite award-winning bakery and cafe. Real ingredients, real craft —
           baked every morning before Auckland wakes up.
         </p>
-        <div ref={linksRef} className="mt-9 flex flex-wrap items-center gap-7">
-          <Link href="#menu" className="editorial-link">
+        <div ref={linksRef} className="mt-10 flex flex-wrap items-center gap-7">
+          <Link href="#menu" className="text-sm tracking-wide text-stone-800 hover:underline">
             View our menu →
           </Link>
-          <Link href="#find-us" className="editorial-link editorial-link--muted">
+          <Link href="#find-us" className="text-sm tracking-wide text-stone-500 hover:underline">
             Find us →
           </Link>
         </div>
       </div>
 
-      <div className="relative order-1 h-[55vw] min-h-[200px] w-full max-w-[100vw] overflow-hidden md:order-2 md:h-auto md:min-h-[100svh]">
+      <div className="relative order-1 h-[56vw] min-h-[200px] w-full overflow-hidden md:order-none md:h-full md:min-h-screen">
         <div ref={imageScrollRef} className="absolute inset-0 h-full w-full">
           <div ref={imageInnerRef} className="absolute inset-0 h-full w-full will-change-transform">
             <Image
