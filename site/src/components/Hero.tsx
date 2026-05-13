@@ -61,45 +61,42 @@ export function Hero() {
       id="hero"
       className="grid min-h-[100svh] grid-cols-1 bg-[var(--bg-primary)] md:grid-cols-2"
     >
-      <div className="order-2 flex flex-col justify-center px-6 py-16 md:order-1 md:min-h-[100svh] md:px-[80px] md:py-24">
+      <div className="order-2 flex flex-col justify-center pt-10 pb-14 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:order-1 md:min-h-[100svh] md:pt-20 md:pb-20 md:pl-[var(--page-padding-x)] md:pr-12">
         <p
           ref={labelRef}
-          className="font-heading mb-8 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)]"
+          className="font-heading mb-4 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] md:mb-6"
         >
           FLAT BUSH, AUCKLAND · EST. 2018
         </p>
-        <h1 className="font-heading mb-10 text-[44px] font-extralight leading-none tracking-[-0.02em] text-[var(--text-primary)] md:mb-12 md:text-[88px]">
-          <span ref={line1Ref} className="block">
+        <h1 className="font-heading font-extralight leading-none tracking-[-0.02em] text-[var(--text-primary)] [&>span]:mb-0">
+          <span ref={line1Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
             Baked
           </span>
-          <span ref={line2Ref} className="block">
+          <span ref={line2Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
             Fresh.
           </span>
-          <span ref={line3Ref} className="block">
+          <span ref={line3Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
             Daily.
           </span>
         </h1>
         <p
           ref={bodyRef}
-          className="mb-12 max-w-[380px] text-base leading-[1.7] text-[var(--text-secondary)]"
+          className="mt-7 mb-6 max-w-[380px] text-[15px] leading-[1.7] text-[var(--text-secondary)] md:mb-6 md:text-base"
         >
           Flat Bush&apos;s favourite award-winning bakery and cafe. Real ingredients, real craft —
           baked every morning before Auckland wakes up.
         </p>
-        <div ref={linksRef} className="flex flex-wrap items-center gap-6">
-          <Link href="#menu" className="editorial-link min-h-12 inline-flex items-center py-2">
+        <div ref={linksRef} className="flex flex-wrap items-center gap-5">
+          <Link href="#menu" className="editorial-link">
             View our menu →
           </Link>
-          <Link
-            href="#find-us"
-            className="editorial-link editorial-link--muted min-h-12 inline-flex items-center py-2"
-          >
+          <Link href="#find-us" className="editorial-link editorial-link--muted">
             Find us →
           </Link>
         </div>
       </div>
 
-      <div className="relative order-1 h-[55vw] min-h-[220px] w-full overflow-hidden md:order-2 md:h-auto md:min-h-[100svh]">
+      <div className="relative order-1 h-[56vw] min-h-[200px] w-full max-w-[100vw] overflow-hidden md:order-2 md:h-auto md:min-h-[100svh]">
         <div ref={imageInnerRef} className="absolute inset-0 h-full w-full will-change-transform">
           <Image
             src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&auto=format&fit=crop&q=80"

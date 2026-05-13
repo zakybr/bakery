@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --page-padding-x: clamp(24px, 5vw, 80px);
+  --section-padding-y: clamp(64px, 8vw, 120px);
   --bg-primary: #ffffff;
   --bg-secondary: #f7f4f0;
   --bg-accent: #ede8e1;
@@ -43,6 +45,23 @@ body {
   overflow-x: hidden;
 }
 
+img {
+  max-width: 100%;
+}
+
+img:not([data-nimg="fill"]) {
+  height: auto;
+}
+
+.section-padding {
+  padding: var(--section-padding-y) var(--page-padding-x);
+}
+
+.page-x-padding {
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
 h1,
 h2,
 h3,
@@ -73,6 +92,9 @@ p {
   color: var(--text-primary);
   text-decoration: none;
   transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .editorial-link:hover {
@@ -91,6 +113,9 @@ p {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .footer-nav-link:hover {

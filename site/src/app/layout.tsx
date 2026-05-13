@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { JsonLdScript } from "next-seo";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FFFFFF",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://baketownbakery.co.nz"),
@@ -47,6 +54,18 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Bake Town Bakery & Cafe" }],
   creator: "Bake Town Bakery & Cafe",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Bake Town Bakery",
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
+  },
+  alternates: {
+    canonical: "https://baketownbakery.co.nz",
+  },
 };
 
 const bakeryJsonLd = {
@@ -72,6 +91,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-NZ" className="h-full antialiased">
+      <head>
+        <meta name="geo.region" content="NZ-AUK" />
+        <meta name="geo.placename" content="Flat Bush, Auckland" />
+      </head>
       <body className={`${inter.variable} min-h-full flex flex-col font-sans`}>
         <JsonLdScript scriptKey="bakery-jsonld" data={bakeryJsonLd} />
         <SmoothScroll>{children}</SmoothScroll>

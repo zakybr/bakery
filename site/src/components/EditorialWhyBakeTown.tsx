@@ -15,11 +15,14 @@ export function EditorialWhyBakeTown() {
   const stripRef = useScrollImageScale<HTMLDivElement>();
 
   return (
-    <section id="about" className="scroll-mt-24 bg-[var(--bg-primary)] px-6 py-20 md:scroll-mt-28 md:px-10 md:py-[120px]">
+    <section
+      id="about"
+      className="scroll-mt-24 overflow-x-hidden bg-[var(--bg-primary)] py-[var(--section-padding-y)] pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:scroll-mt-28"
+    >
       <div className="mx-auto max-w-[1600px]">
         <h2
           ref={h2Ref}
-          className="font-heading mx-auto mb-20 max-w-4xl text-center text-[clamp(28px,6vw,72px)] font-extralight leading-[1.05] tracking-[-0.02em] text-[var(--text-primary)] md:mb-24"
+          className="font-heading mx-auto mb-16 max-w-[800px] text-center text-[clamp(32px,5vw,72px)] font-extralight leading-[1.05] tracking-[-0.02em] text-[var(--text-primary)]"
         >
           <span className="block">The local bakery that</span>
           <span className="block">actually gives a damn.</span>
@@ -27,22 +30,22 @@ export function EditorialWhyBakeTown() {
 
         <div
           ref={statsRef}
-          className="mx-auto mb-20 grid max-w-3xl grid-cols-1 gap-12 text-center md:mb-24 md:grid-cols-3 md:gap-16"
+          className="mx-auto mb-16 grid max-w-3xl grid-cols-1 gap-[clamp(32px,6vw,80px)] text-center md:mb-16 md:grid-cols-3"
         >
           {stats.map((s) => (
             <div key={s.label}>
-              <p className="font-heading text-[clamp(40px,5vw,56px)] font-light text-[var(--text-primary)]">
+              <p className="font-heading text-[clamp(36px,5vw,56px)] font-light text-[var(--text-primary)]">
                 {s.value}
               </p>
-              <p className="font-heading mt-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)]">
+              <p className="font-heading mt-2 text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
                 {s.label}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="relative -mx-6 h-[280px] overflow-hidden md:-mx-10 md:h-[400px]">
-          <div ref={stripRef} className="absolute inset-0 h-full w-full">
+        <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden">
+          <div ref={stripRef} className="relative h-[clamp(280px,35vw,420px)] w-full">
             <Image
               src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1600&auto=format&fit=crop&q=80"
               alt="Baking at Bake Town Bakery"

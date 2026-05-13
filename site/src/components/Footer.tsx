@@ -9,38 +9,38 @@ const nav = [
 export function Footer() {
   return (
     <footer className="bg-[var(--text-primary)] text-white">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-        <div className="grid grid-cols-1 items-center gap-10 py-12 text-center md:grid-cols-3 md:gap-8 md:py-12 md:text-left">
-          <p className="font-heading justify-self-center text-[13px] font-medium uppercase tracking-[0.15em] md:justify-self-start">
+      <div className="mx-auto max-w-[1600px] pt-10 pb-8 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)]">
+        <div className="flex flex-col items-start gap-5 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-6">
+          <p className="font-heading text-[13px] font-medium uppercase tracking-[0.15em]">
             Bake Town Bakery &amp; Cafe
           </p>
-          <nav className="flex flex-wrap items-center justify-center gap-4 md:justify-center md:gap-5" aria-label="Footer">
+          <nav className="flex flex-wrap items-center gap-4 md:gap-6" aria-label="Footer">
             {nav.map(({ href, label }, i) => (
-              <span key={label} className="flex items-center gap-4 md:gap-5">
+              <span key={label} className="flex items-center gap-4 md:gap-6">
                 {i > 0 ? (
                   <span className="text-[11px] text-white/40" aria-hidden>
                     ·
                   </span>
                 ) : null}
-                <Link href={href} className="footer-nav-link min-h-12 inline-flex items-center py-2">
+                <Link href={href} className="footer-nav-link">
                   {label}
                 </Link>
               </span>
             ))}
           </nav>
-          <div className="flex justify-center md:justify-end">
+          <div className="flex w-full justify-start md:w-auto md:justify-end">
             <Link
               href="#find-us"
-              className="font-heading min-h-12 inline-flex items-center py-2 text-[11px] uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-80"
+              className="font-heading inline-flex min-h-11 items-center text-[11px] uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-80"
             >
               ORDER →
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-6 pb-12 text-center text-[11px] text-white/40 md:flex-row md:justify-between md:pt-6 md:pb-12 md:text-left">
+        <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-5 text-[11px] text-white/40 md:mt-6 md:flex-row md:flex-wrap md:items-start md:justify-between md:gap-3">
           <p>© 2025 Bake Town Bakery &amp; Cafe</p>
-          <p className="max-w-xl leading-relaxed">
+          <p className="max-w-full leading-relaxed md:max-w-xl">
             Proudly serving Flat Bush · Botany · Ormiston · Manukau · Clover Park · East Auckland
           </p>
         </div>

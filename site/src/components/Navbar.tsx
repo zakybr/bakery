@@ -27,23 +27,20 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-primary)]">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-6 py-4 md:px-10">
+      <header className="sticky top-0 z-[100] border-b border-[var(--border)] bg-[var(--bg-primary)]">
+        <div className="page-x-padding mx-auto flex h-14 max-w-[1600px] items-center justify-between gap-4 md:h-16">
           <Link
             href="#hero"
             onClick={closeMenu}
-            className="font-heading min-h-12 shrink-0 py-2 text-[14px] font-medium uppercase tracking-[0.15em] text-[var(--text-primary)]"
+            className="font-heading inline-flex min-h-11 shrink-0 items-center py-2 text-[14px] font-medium uppercase tracking-[0.15em] text-[var(--text-primary)] md:min-h-0"
           >
             Bake Town
           </Link>
 
-          <nav
-            className="font-heading hidden items-center gap-5 md:flex"
-            aria-label="Primary"
-          >
+          <nav className="font-heading hidden items-center gap-8 md:flex" aria-label="Primary">
             <Link
               href="#menu"
-              className="min-h-12 inline-flex items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+              className="inline-flex min-h-11 items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             >
               MENU
             </Link>
@@ -52,7 +49,7 @@ export function Navbar() {
             </span>
             <Link
               href="#about"
-              className="min-h-12 inline-flex items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+              className="inline-flex min-h-11 items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             >
               ABOUT
             </Link>
@@ -61,7 +58,7 @@ export function Navbar() {
             </span>
             <Link
               href="#find-us"
-              className="min-h-12 inline-flex items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+              className="inline-flex min-h-11 items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             >
               FIND US
             </Link>
@@ -70,7 +67,7 @@ export function Navbar() {
             </span>
             <Link
               href="#find-us"
-              className="min-h-12 inline-flex items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--terracotta)] transition-opacity hover:opacity-80"
+              className="inline-flex min-h-11 items-center py-2 text-[12px] font-normal uppercase tracking-[0.12em] text-[var(--terracotta)] transition-opacity hover:opacity-80"
             >
               ORDER →
             </Link>
@@ -78,7 +75,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex min-h-12 min-w-12 items-center justify-center text-[var(--text-primary)] md:hidden"
+            className="inline-flex size-11 min-h-11 min-w-11 shrink-0 items-center justify-center text-[var(--text-primary)] md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
@@ -111,13 +108,13 @@ export function Navbar() {
       <div
         id="mobile-nav"
         className={clsx(
-          "fixed inset-0 z-40 flex flex-col bg-[var(--bg-primary)] pt-24 transition-opacity duration-300 md:hidden",
+          "fixed inset-0 z-[90] flex flex-col bg-[var(--bg-primary)] pt-16 transition-opacity duration-300 md:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         aria-hidden={!open}
       >
         <nav
-          className="font-heading flex flex-1 flex-col items-center justify-center gap-2 px-6 py-24"
+          className="page-x-padding font-heading flex flex-1 flex-col items-center justify-center gap-2 py-16"
           aria-label="Mobile"
         >
           {textLinks.map(({ href, label }) => (
@@ -125,7 +122,7 @@ export function Navbar() {
               key={label}
               href={href}
               onClick={closeMenu}
-              className="flex min-h-12 w-full max-w-xs items-center justify-center py-3 text-center text-xl font-light uppercase tracking-[0.18em] text-[var(--text-primary)]"
+              className="flex min-h-11 w-full max-w-xs items-center justify-center py-3 text-center text-xl font-light uppercase tracking-[0.18em] text-[var(--text-primary)]"
             >
               {label}
             </Link>
@@ -133,7 +130,7 @@ export function Navbar() {
           <Link
             href="#find-us"
             onClick={closeMenu}
-            className="mt-6 min-h-12 inline-flex items-center justify-center text-xl font-light uppercase tracking-[0.12em] text-[var(--terracotta)]"
+            className="mt-4 flex min-h-11 items-center justify-center text-xl font-light uppercase tracking-[0.12em] text-[var(--terracotta)]"
           >
             ORDER →
           </Link>
