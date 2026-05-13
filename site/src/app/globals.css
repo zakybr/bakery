@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --page-padding-x: clamp(24px, 5vw, 80px);
-  --section-padding-y: clamp(64px, 8vw, 120px);
+  --page-padding-x: clamp(32px, 6vw, 100px);
+  --section-gap: clamp(80px, 10vw, 140px);
+  --inner-gap: clamp(24px, 3vw, 48px);
   --bg-primary: #ffffff;
   --bg-secondary: #f7f4f0;
   --bg-accent: #ede8e1;
@@ -13,6 +14,13 @@
   --accent-light: #c4a882;
   --terracotta: #c4613a;
   --border: #e8e3dc;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-padding-x: 24px;
+    --section-gap: 64px;
+  }
 }
 
 @theme inline {
@@ -54,7 +62,7 @@ img:not([data-nimg="fill"]) {
 }
 
 .section-padding {
-  padding: var(--section-padding-y) var(--page-padding-x);
+  padding: var(--section-gap) var(--page-padding-x);
 }
 
 .page-x-padding {

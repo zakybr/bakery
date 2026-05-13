@@ -1,6 +1,6 @@
 "use client";
 
-import { useScrollBodyFade, useScrollHeadingClip } from "@/hooks/useScrollAnimation";
+import { useScrollTestimonialBlock } from "@/hooks/useScrollAnimation";
 
 const items = [
   { quote: "Best pies in East Auckland, full stop.", author: "— SARAH M., FLAT BUSH" },
@@ -8,25 +8,21 @@ const items = [
   { quote: "That steak and oyster pie needs to be on the menu permanently.", author: "— MIKE R., MANUKAU" },
 ] as const;
 
-function TestimonialBlock({ quote, author }: { quote: string; author: string }) {
-  const quoteRef = useScrollHeadingClip<HTMLParagraphElement>();
-  const attrRef = useScrollBodyFade<HTMLParagraphElement>();
+function TestimonialItem({ quote, author }: { quote: string; author: string }) {
+  const blockRef = useScrollTestimonialBlock<HTMLDivElement>();
 
   return (
-    <div className="mx-auto max-w-[720px] text-center">
-      <span className="font-heading mb-4 block text-[80px] font-extralight leading-[0.6] text-[var(--border)]">
+    <div
+      ref={blockRef}
+      className="mx-auto flex max-w-[680px] flex-col items-center text-center max-sm:max-w-full max-sm:px-0"
+    >
+      <span className="font-heading mb-2 block text-center text-[72px] font-extralight leading-none text-[var(--border)]">
         &ldquo;
       </span>
-      <p
-        ref={quoteRef}
-        className="font-heading mx-auto max-w-[720px] text-[clamp(18px,5vw,24px)] font-extralight leading-[1.4] text-[var(--text-primary)] md:text-[clamp(20px,3vw,32px)]"
-      >
+      <p className="font-heading m-0 max-w-[680px] text-center text-[clamp(18px,5vw,24px)] font-extralight leading-[1.45] text-[var(--text-primary)] max-sm:max-w-full md:text-[clamp(20px,2.8vw,30px)]">
         {quote}
       </p>
-      <p
-        ref={attrRef}
-        className="font-heading mt-4 text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)]"
-      >
+      <p className="font-heading mt-5 text-center text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
         {author}
       </p>
     </div>
@@ -35,13 +31,16 @@ function TestimonialBlock({ quote, author }: { quote: string; author: string }) 
 
 export function Testimonials() {
   return (
-    <section className="bg-[var(--bg-secondary)] py-12 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:py-[var(--section-padding-y)] md:pl-[var(--page-padding-x)] md:pr-[var(--page-padding-x)]">
+    <section className="bg-[var(--bg-secondary)] py-12 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] max-sm:py-12 md:py-[var(--section-gap)]">
       <div className="mx-auto max-w-3xl">
         {items.map((item, i) => (
           <div key={item.quote}>
-            <TestimonialBlock quote={item.quote} author={item.author} />
+            <TestimonialItem quote={item.quote} author={item.author} />
             {i < items.length - 1 ? (
-              <div className="mx-auto my-[48px] h-px w-10 max-w-[40px] bg-[var(--border)]" aria-hidden />
+              <span
+                className="mx-auto my-12 block h-16 w-px bg-[var(--border)] max-sm:my-12"
+                aria-hidden
+              />
             ) : null}
           </div>
         ))}

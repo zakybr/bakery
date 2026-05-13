@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useScrollImageReveal } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(useGSAP);
 
@@ -17,6 +18,7 @@ export function Hero() {
   const bodyRef = useRef<HTMLParagraphElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
   const imageInnerRef = useRef<HTMLDivElement>(null);
+  const imageScrollRef = useScrollImageReveal<HTMLDivElement>();
 
   useGSAP(
     () => {
@@ -61,14 +63,14 @@ export function Hero() {
       id="hero"
       className="grid min-h-[100svh] grid-cols-1 bg-[var(--bg-primary)] md:grid-cols-2"
     >
-      <div className="order-2 flex flex-col justify-center pt-10 pb-14 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:order-1 md:min-h-[100svh] md:pt-20 md:pb-20 md:pl-[var(--page-padding-x)] md:pr-12">
+      <div className="order-2 flex flex-col justify-center gap-0 pt-10 pb-14 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:order-1 md:min-h-[100svh] md:py-[clamp(80px,10vw,140px)] md:pl-[clamp(32px,5vw,80px)] md:pr-[clamp(32px,5vw,80px)]">
         <p
           ref={labelRef}
-          className="font-heading mb-4 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] md:mb-6"
+          className="font-heading mb-7 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)]"
         >
           FLAT BUSH, AUCKLAND · EST. 2018
         </p>
-        <h1 className="font-heading font-extralight leading-none tracking-[-0.02em] text-[var(--text-primary)] [&>span]:mb-0">
+        <h1 className="font-heading m-0 font-extralight leading-[0.95] tracking-[-0.03em] text-[var(--text-primary)] [&>span]:mb-0">
           <span ref={line1Ref} className="block text-[clamp(40px,10vw,72px)] md:text-[88px]">
             Baked
           </span>
@@ -81,12 +83,12 @@ export function Hero() {
         </h1>
         <p
           ref={bodyRef}
-          className="mt-7 mb-6 max-w-[380px] text-[15px] leading-[1.7] text-[var(--text-secondary)] md:mb-6 md:text-base"
+          className="mt-8 max-w-[380px] text-[15px] leading-[1.7] text-[var(--text-secondary)] md:text-base"
         >
           Flat Bush&apos;s favourite award-winning bakery and cafe. Real ingredients, real craft —
           baked every morning before Auckland wakes up.
         </p>
-        <div ref={linksRef} className="flex flex-wrap items-center gap-5">
+        <div ref={linksRef} className="mt-9 flex flex-wrap items-center gap-7">
           <Link href="#menu" className="editorial-link">
             View our menu →
           </Link>
@@ -96,16 +98,18 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative order-1 h-[56vw] min-h-[200px] w-full max-w-[100vw] overflow-hidden md:order-2 md:h-auto md:min-h-[100svh]">
-        <div ref={imageInnerRef} className="absolute inset-0 h-full w-full will-change-transform">
-          <Image
-            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&auto=format&fit=crop&q=80"
-            alt="Artisan bread and baking at Bake Town Bakery Flat Bush"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority
-          />
+      <div className="relative order-1 h-[55vw] min-h-[200px] w-full max-w-[100vw] overflow-hidden md:order-2 md:h-auto md:min-h-[100svh]">
+        <div ref={imageScrollRef} className="absolute inset-0 h-full w-full">
+          <div ref={imageInnerRef} className="absolute inset-0 h-full w-full will-change-transform">
+            <Image
+              src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&auto=format&fit=crop&q=80"
+              alt="Artisan bread and baking at Bake Town Bakery Flat Bush"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
