@@ -9,7 +9,7 @@ const nav = [
 export function Footer() {
   return (
     <footer className="bg-stone-900 text-white">
-      <div className="mx-auto max-w-[1600px] px-6 py-12 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1600px] px-10 py-12 md:px-14 lg:px-20">
         <div className="flex flex-wrap items-center justify-between gap-6 border-b border-white/10 pb-8 max-md:flex-col max-md:items-start">
           <p className="font-heading text-[13px] font-medium uppercase tracking-[0.15em]">
             Bake Town Bakery &amp; Cafe

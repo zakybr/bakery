@@ -29,7 +29,7 @@ export function FindUs() {
           </div>
         </div>
 
-        <div className="order-2 flex flex-col justify-center bg-white px-8 py-12 md:order-none md:py-20 md:pl-20 md:pr-16 lg:pl-24">
+        <div className="order-2 flex flex-col justify-center bg-white px-10 py-12 md:order-none md:py-20 md:pl-20 md:pr-16 lg:pl-24">
           <p
             ref={labelRef}
             className="font-heading mb-4 text-[11px] uppercase tracking-[0.2em] text-stone-400"

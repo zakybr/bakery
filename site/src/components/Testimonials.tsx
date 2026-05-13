@@ -31,7 +31,7 @@ function TestimonialItem({ quote, author }: { quote: string; author: string }) {
 
 export function Testimonials() {
   return (
-    <section className="bg-[#F7F4F0] px-6 py-16 md:px-16 md:py-32 lg:px-24">
+    <section className="bg-[#F7F4F0] px-10 py-16 md:px-14 md:py-32 lg:px-20">
       <div className="mx-auto max-w-3xl">
         {items.map((item, i) => (
           <div key={item.quote}>

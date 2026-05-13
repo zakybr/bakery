@@ -51,7 +51,7 @@ export function EditorialWhyBakeTown() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 overflow-x-hidden bg-white px-6 py-24 md:scroll-mt-28 md:px-16 md:py-32 lg:px-24"
+      className="scroll-mt-24 overflow-x-hidden bg-white px-10 py-24 md:scroll-mt-28 md:px-14 md:py-32 lg:px-20"
     >
       <div className="mx-auto max-w-[1600px]">
         <h2
@@ -71,7 +71,7 @@ export function EditorialWhyBakeTown() {
           ))}
         </div>
 
-        <div className="relative -mx-6 h-[300px] overflow-hidden md:-mx-16 md:h-[400px] lg:-mx-24">
+        <div className="relative -mx-10 h-[300px] overflow-hidden md:-mx-14 md:h-[400px] lg:-mx-20">
           <div ref={stripRef} className="absolute inset-0 h-full w-full">
             <Image
               src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1600&auto=format&fit=crop&q=80"

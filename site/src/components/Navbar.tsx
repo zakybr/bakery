@@ -27,7 +27,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-stone-100 bg-white px-6 md:px-16 lg:px-24">
+      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-stone-100 bg-white px-10 md:px-14 lg:px-20">
         <Link
           href="#hero"
           onClick={closeMenu}
@@ -112,7 +112,7 @@ export function Navbar() {
         aria-hidden={!open}
       >
         <nav
-          className="font-heading flex flex-1 flex-col items-center justify-center gap-2 px-6 py-16"
+          className="font-heading flex flex-1 flex-col items-center justify-center gap-2 px-10 py-16 md:px-14 lg:px-20"
           aria-label="Mobile"
         >
           {textLinks.map(({ href, label }) => (

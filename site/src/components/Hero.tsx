@@ -63,7 +63,7 @@ export function Hero() {
       id="hero"
       className="grid min-h-screen grid-cols-1 bg-white md:grid-cols-2"
     >
-      <div className="order-2 flex w-full flex-col justify-center gap-0 px-6 py-16 md:order-none md:px-16 md:py-24 lg:px-24">
+      <div className="order-2 flex w-full flex-col justify-center px-12 py-20 md:order-none md:px-16 lg:px-20">
         <p
           ref={labelRef}
           className="font-heading mb-7 text-xs uppercase tracking-widest text-stone-400"

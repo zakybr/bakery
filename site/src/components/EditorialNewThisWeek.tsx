@@ -26,7 +26,7 @@ export function EditorialNewThisWeek() {
           </div>
         </div>
 
-        <div className="order-2 flex flex-col justify-center bg-[#F7F4F0] px-8 py-12 md:order-none md:py-20 md:pl-20 md:pr-16 lg:pl-24 lg:pr-24">
+        <div className="order-2 flex flex-col justify-center bg-[#F7F4F0] px-10 py-12 md:order-none md:py-20 md:pl-20 md:pr-16 lg:pl-24 lg:pr-24">
           <p
             ref={tagRef}
             className="font-heading mb-6 inline-block w-fit border border-[#C4613A] px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] text-[#C4613A]"
