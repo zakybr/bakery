@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import CursorGlow from "@/components/CursorGlow";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
@@ -75,10 +74,7 @@ export default function RootLayout({
     <html lang="en-NZ" className="h-full antialiased">
       <body className={`${inter.variable} min-h-full flex flex-col font-sans`}>
         <JsonLdScript scriptKey="bakery-jsonld" data={bakeryJsonLd} />
-        <SmoothScroll>
-          <CursorGlow />
-          {children}
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

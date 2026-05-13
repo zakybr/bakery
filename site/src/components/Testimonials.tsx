@@ -1,59 +1,47 @@
 "use client";
 
-import { useFadeUp, useStaggerCards } from "@/hooks/useScrollAnimation";
+import { useScrollBodyFade, useScrollHeadingClip } from "@/hooks/useScrollAnimation";
 
-const quotes = [
-  {
-    text: "Best pies in East Auckland, full stop.",
-    author: "Sarah M., Flat Bush",
-  },
-  {
-    text: "We come every Saturday morning. The kids love the donuts.",
-    author: "James T., Botany",
-  },
-  {
-    text: "That steak and oyster pie needs to be on the menu permanently.",
-    author: "Mike R., Manukau",
-  },
-];
+const items = [
+  { quote: "Best pies in East Auckland, full stop.", author: "— SARAH M., FLAT BUSH" },
+  { quote: "We come every Saturday morning. The kids love the donuts.", author: "— JAMES T., BOTANY" },
+  { quote: "That steak and oyster pie needs to be on the menu permanently.", author: "— MIKE R., MANUKAU" },
+] as const;
 
-export function Testimonials() {
-  const titleRef = useFadeUp(0);
-  const gridRef = useStaggerCards<HTMLDivElement>([]);
+function TestimonialBlock({ quote, author }: { quote: string; author: string }) {
+  const quoteRef = useScrollHeadingClip<HTMLParagraphElement>();
+  const attrRef = useScrollBodyFade<HTMLParagraphElement>();
 
   return (
-    <section className="bg-[var(--bg-secondary)] px-3 py-12 sm:px-4 sm:py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-6xl">
-        <div ref={titleRef} className="mb-10 text-center sm:mb-12">
-          <h2 className="font-mono-accent text-xs font-medium uppercase tracking-[0.28em] text-[var(--cream-muted)]">
-            From our customers
-          </h2>
-        </div>
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6 lg:gap-8"
-        >
-          {quotes.map((q) => (
-            <blockquote
-              key={q.text}
-              data-stagger-card
-              className="glass relative overflow-hidden p-6 sm:p-8"
-            >
-              <span
-                className="font-display pointer-events-none absolute left-3 top-2 text-[80px] leading-none text-[var(--gold)] opacity-[0.15]"
-                aria-hidden
-              >
-                &ldquo;
-              </span>
-              <p className="font-display relative z-[1] pt-8 text-xl font-normal italic leading-snug text-[var(--cream)] sm:text-2xl">
-                {q.text}
-              </p>
-              <footer className="font-mono-accent relative z-[1] mt-5 text-xs font-medium uppercase tracking-[0.12em] text-[var(--gold-light)]">
-                — {q.author}
-              </footer>
-            </blockquote>
-          ))}
-        </div>
+    <div className="text-center">
+      <span className="font-heading block text-[120px] font-extralight leading-[0.5] text-[var(--border)]">
+        &ldquo;
+      </span>
+      <p
+        ref={quoteRef}
+        className="font-heading mx-auto mt-2 max-w-[680px] text-[clamp(22px,4vw,32px)] font-extralight leading-snug text-[var(--text-primary)]"
+      >
+        {quote}
+      </p>
+      <p ref={attrRef} className="font-heading mt-8 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)]">
+        {author}
+      </p>
+    </div>
+  );
+}
+
+export function Testimonials() {
+  return (
+    <section className="bg-[var(--bg-secondary)] px-6 py-20 md:px-10 md:py-[100px]">
+      <div className="mx-auto max-w-3xl">
+        {items.map((item, i) => (
+          <div key={item.quote}>
+            <TestimonialBlock quote={item.quote} author={item.author} />
+            {i < items.length - 1 ? (
+              <div className="mx-auto my-[48px] h-px w-10 bg-[var(--border)]" aria-hidden />
+            ) : null}
+          </div>
+        ))}
       </div>
     </section>
   );

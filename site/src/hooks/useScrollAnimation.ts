@@ -11,37 +11,30 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function isMobileWidth(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(max-width: 640px)").matches;
-}
-
-export function useFadeUp(delay = 0) {
-  const ref = useRef<HTMLDivElement>(null);
+/** Full-bleed / editorial images: scale 1.06 → 1 on enter. */
+export function useScrollImageScale<T extends HTMLElement = HTMLElement>() {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     if (prefersReducedMotion()) {
-      gsap.set(el, { y: 0, opacity: 1 });
+      gsap.set(el, { scale: 1 });
       return;
     }
 
-    const y = isMobileWidth() ? 30 : 50;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { y, opacity: 0 },
+        { scale: 1.06 },
         {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          delay,
+          scale: 1,
+          duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 88%",
+            start: "top 90%",
             toggleActions: "play none none none",
           },
         }
@@ -49,34 +42,32 @@ export function useFadeUp(delay = 0) {
     }, el);
 
     return () => ctx.revert();
-  }, [delay]);
+  }, []);
 
   return ref;
 }
 
-export function useSlideIn(direction: "left" | "right" = "left") {
-  const ref = useRef<HTMLDivElement>(null);
+/** Headings: clip-path reveal from bottom. */
+export function useScrollHeadingClip<T extends HTMLElement = HTMLElement>() {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     if (prefersReducedMotion()) {
-      gsap.set(el, { x: 0, opacity: 1 });
+      gsap.set(el, { clipPath: "inset(0 0 0% 0)" });
       return;
     }
 
-    const xDist = isMobileWidth() ? 36 : 60;
-    const x = direction === "left" ? -xDist : xDist;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { x, opacity: 0 },
+        { clipPath: "inset(0 0 100% 0)" },
         {
-          x: 0,
-          opacity: 1,
+          clipPath: "inset(0 0 0% 0)",
           duration: 1,
-          ease: "power3.out",
+          ease: "power4.out",
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
@@ -87,46 +78,41 @@ export function useSlideIn(direction: "left" | "right" = "left") {
     }, el);
 
     return () => ctx.revert();
-  }, [direction]);
+  }, []);
 
   return ref;
 }
 
-/** Stagger children with `[data-stagger-card]` inside container. */
-export function useStaggerCards<T extends HTMLElement>(deps: unknown[] = []) {
+/** Body copy blocks: fade up. */
+export function useScrollBodyFade<T extends HTMLElement = HTMLElement>(deps: unknown[] = []) {
   const ref = useRef<T>(null);
 
   useEffect(() => {
-    const container = ref.current;
-    if (!container) return;
-
-    const cards = container.querySelectorAll<HTMLElement>("[data-stagger-card]");
-    if (!cards.length) return;
+    const el = ref.current;
+    if (!el) return;
 
     if (prefersReducedMotion()) {
-      gsap.set(cards, { y: 0, opacity: 1 });
+      gsap.set(el, { y: 0, opacity: 1 });
       return;
     }
 
-    const y = isMobileWidth() ? 30 : 40;
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        cards,
-        { y, opacity: 0 },
+        el,
+        { y: 24, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.8,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: container,
-            start: "top 80%",
+            trigger: el,
+            start: "top 88%",
             toggleActions: "play none none none",
           },
         }
       );
-    }, container);
+    }, el);
 
     return () => ctx.revert();
     // eslint-disable-next-line react-hooks/exhaustive-deps -- caller controls deps
