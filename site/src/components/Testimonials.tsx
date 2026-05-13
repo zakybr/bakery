@@ -14,7 +14,7 @@ function TestimonialItem({ quote, author }: { quote: string; author: string }) {
   return (
     <div
       ref={blockRef}
-      className="mx-auto flex max-w-[680px] flex-col items-center text-center max-sm:max-w-full max-sm:px-0"
+      className="mx-auto flex max-w-[680px] flex-col items-center text-center max-sm:max-w-full"
     >
       <span className="font-heading mb-2 block text-center text-[72px] font-extralight leading-none text-[var(--border)]">
         &ldquo;
@@ -31,7 +31,7 @@ function TestimonialItem({ quote, author }: { quote: string; author: string }) {
 
 export function Testimonials() {
   return (
-    <section className="bg-[var(--bg-secondary)] py-12 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] max-sm:py-12 md:py-[var(--section-gap)]">
+    <section className="bg-[var(--bg-secondary)] py-12 pl-[var(--page-padding-x)] pr-[var(--page-padding-x)] md:py-[var(--section-gap)]">
       <div className="mx-auto max-w-3xl">
         {items.map((item, i) => (
           <div key={item.quote}>
